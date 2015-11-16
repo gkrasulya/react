@@ -25,7 +25,7 @@ var ReactMarkupChecksum = {
    * @return {string} Markup string with checksum attribute attached
    */
   addChecksumToMarkup: function(markup) {
-    var checksum = adler32(markup);
+    var checksum = markup.length;
 
     // Add checksum (handle both parent tags, comments and self-closing tags)
     if (COMMENT_START.test(markup)) {
@@ -48,8 +48,8 @@ var ReactMarkupChecksum = {
       ReactMarkupChecksum.CHECKSUM_ATTR_NAME
     );
     existingChecksum = existingChecksum && parseInt(existingChecksum, 10);
-    var markupChecksum = adler32(markup);
-    return markupChecksum === existingChecksum;
+    var markupChecksum = markup.length;
+    return markupChecksum === Number(existingChecksum);
   },
 };
 
