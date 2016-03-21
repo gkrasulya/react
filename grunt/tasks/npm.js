@@ -58,6 +58,7 @@ module.exports = function() {
         run('npm', [
           'install',
           '--production',
+          '--registry=http://npm.yandex-team.ru/',
           tgz,
         ], {cwd: dir}, function() {
           var nodePath = path.join(dir, 'node_modules');
