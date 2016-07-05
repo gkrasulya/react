@@ -13,7 +13,7 @@ module.exports = function() {
       grunt.file.readJSON('./packages/react-dom/package.json').version,
     'packages/react-addons/package.json (version)': addonsData.version,
     // Get the "version" without the range bit
-    'packages/react-addons/package.json (react dependency)': addonsData.peerDependencies.react.slice(1),
+    'packages/react-addons/package.json (react dependency)': addonsData.peerDependencies['domino-react'].slice(1),
     'src/ReactVersion.js': require('../../src/ReactVersion'),
   };
 

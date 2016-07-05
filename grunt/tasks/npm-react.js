@@ -63,8 +63,8 @@ function packRelease() {
     },
   };
   grunt.util.spawn(spawnCmd, function() {
-    var buildSrc = 'build/react-' + grunt.config.data.pkg.version + '.tgz';
-    var buildDest = 'build/packages/react.tgz';
+    var buildSrc = 'build/domino-react-' + grunt.config.data.pkg.version + '.tgz';
+    var buildDest = 'build/packages/domino-react.tgz';
     fs.rename(buildSrc, buildDest, done);
   });
 }

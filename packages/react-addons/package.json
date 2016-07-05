@@ -1,5 +1,5 @@
 {
-  "name": "react-addons-template",
+  "name": "domino-react-addons-template",
   "version": "15.0.1",
   "main": "index.js",
   "repository": "facebook/react",
@@ -10,6 +10,6 @@
   "license": "BSD-3-Clause",
   "dependencies": {},
   "peerDependencies": {
-    "react": "^15.0.1"
+    "domino-react": "^15.0.1"
   }
 }

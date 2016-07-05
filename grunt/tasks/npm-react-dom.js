@@ -51,8 +51,8 @@ function packRelease() {
   };
   grunt.util.spawn(spawnCmd, function() {
     fs.rename(
-      'build/packages/react-dom-' + grunt.config.data.pkg.version + '.tgz',
-      'build/packages/react-dom.tgz',
+      'build/packages/domino-react-dom-' + grunt.config.data.pkg.version + '.tgz',
+      'build/packages/domino-react-dom.tgz',
       done
     );
   });

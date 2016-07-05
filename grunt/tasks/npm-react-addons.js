@@ -54,7 +54,7 @@ var addons = {
 
 function generateSource(info) {
   var pieces = [
-    "module.exports = require('react/lib/",
+    "module.exports = require('domino-react/lib/",
     info.module,
     "')",
   ];
@@ -76,7 +76,10 @@ function buildReleases() {
     var destPatents = path.join(destDir, 'PATENTS');
 
     var pkgData = Object.assign({}, pkgTemplate);
-    pkgData.name = pkgName;
+    pkgData.name = `domino-${pkgName}`;
+    pkgData.scripts = {
+      postinstall: `ln -s domino-${pkgName} ../${pkgName}`
+    };
 
     grunt.file.mkdir(destDir);
     var link = info.docs ? info.docs : 'addons';
@@ -114,8 +117,8 @@ function packReleases() {
       args: ['pack', pkgDir],
     };
     grunt.util.spawn(spawnCmd, function() {
-      var buildSrc = pkgName + '-' + grunt.config.data.pkg.version + '.tgz';
-      var buildDest = 'build/packages/' + pkgName + '.tgz';
+      var buildSrc = 'domino-' + pkgName + '-' + grunt.config.data.pkg.version + '.tgz';
+      var buildDest = 'build/packages/domino-' + pkgName + '.tgz';
       fs.rename(buildSrc, buildDest, maybeDone);
     });
   });
