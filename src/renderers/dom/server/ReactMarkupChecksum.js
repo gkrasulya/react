@@ -25,12 +25,11 @@ var ReactMarkupChecksum = {
    * @return {string} Markup string with checksum attribute attached
    */
   addChecksumToMarkup: function(markup) {
-    var checksum = markup.length;
-
     // Add checksum (handle both parent tags, comments and self-closing tags)
     if (COMMENT_START.test(markup)) {
       return markup;
     } else {
+      var checksum = markup.length;
       return markup.replace(
         TAG_END,
         ' ' + ReactMarkupChecksum.CHECKSUM_ATTR_NAME + '="' + checksum + '"$&'
